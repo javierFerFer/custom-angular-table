@@ -1,21 +1,26 @@
-<ng-container>
+<ng-container *ngIf="{
+  rows: rows$ | async
+} as tmpState">
   <app-custom-table>
 
     <tr app-custom-tr id="columns" type="th" [content]="columns">
       <ng-template let-item #header>
-        {{item}}
+        {{item.title}}
       </ng-template>
     </tr>
 
+  
     <ng-container id="content">
-      <tr app-custom-tr type="td" [content]="['alo1', 'alo2']">
-        <ng-template let-item #header>
-          {{item}}
-        </ng-template>
-      </tr>
+
+      <ng-container *ngFor="let groupOfItems of (tmpState.rows | chunks: columns.length - 1 | fillWithEmpty: [0])">
+        <tr app-custom-tr type="td" [content]="groupOfItems">
+          <ng-template let-item #content>
+            {{item.name}}
+          </ng-template>
+        </tr>
+      </ng-container>
     </ng-container>
-
-
+  
+  
   </app-custom-table>
-
 </ng-container>

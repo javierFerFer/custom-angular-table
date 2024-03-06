@@ -26,7 +26,22 @@ export class DummyTableDataService {
           name: 'alberto',
           surname: 'fernandez',
           userId: 2
-        }
+        },
+        {
+          name: 'alberto',
+          surname: 'fernandez',
+          userId: 2
+        },
+        {
+          name: 'alberto',
+          surname: 'fernandez',
+          userId: 2
+        },
+        {
+          name: 'alberto',
+          surname: 'fernandez',
+          userId: 2
+        },
       ]
     );
   }

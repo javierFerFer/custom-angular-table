@@ -9,20 +9,23 @@ import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } 
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CustomTrComponent<T> {
+export class CustomTrComponent {
 
   
   @Input({
     required: true
   })
-  content!: T[]
+  content!: any[]
 
   @Input({
     required: true
   })
   type!: 'th' | 'td';
 
+  key: unknown = null;
+
   @ContentChild('header',{static: false}) headerTemplateRef!: TemplateRef<any>;
+  @ContentChild('content',{static: false}) contentTemplateRef!: TemplateRef<any>;
 
 
   constructor() {
