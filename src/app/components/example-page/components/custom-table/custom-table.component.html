@@ -1,0 +1,17 @@
+<table>
+
+  <!-- columns parts -->
+  <ng-container>
+    <ng-content select="#columns"></ng-content>
+  </ng-container>
+
+  <ng-container>
+    <ng-content select="#content"></ng-content>
+  </ng-container>
+
+  <!-- <ng-container *ngFor="let column of columns">
+    <ng-content [select]="'#' + colum"></ng-content>
+  </ng-container> -->
+
+
+</table>

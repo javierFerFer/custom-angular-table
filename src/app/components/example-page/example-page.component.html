@@ -1,3 +1,21 @@
-<p>
-  example-page works!
-</p>
+<ng-container>
+  <app-custom-table>
+
+    <tr app-custom-tr id="columns" type="th" [content]="columns">
+      <ng-template let-item #header>
+        {{item}}
+      </ng-template>
+    </tr>
+
+    <ng-container id="content">
+      <tr app-custom-tr type="td" [content]="['alo1', 'alo2']">
+        <ng-template let-item #header>
+          {{item}}
+        </ng-template>
+      </tr>
+    </ng-container>
+
+
+  </app-custom-table>
+
+</ng-container>

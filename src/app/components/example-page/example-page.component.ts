@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DummyData, DummyTableDataService } from '../../services/dummy-table-data.service';
 
 @Component({
   selector: 'app-example-page',
   templateUrl: './example-page.component.html',
   styleUrls: ['./example-page.component.scss']
 })
-export class ExamplePageComponent implements OnInit {
+export class ExamplePageComponent implements OnInit{
 
-  constructor() { }
+  public columns = [
+    'columna_1',
+    'columna_2'
+  ]
 
-  ngOnInit() {
+  public rows$!: Observable<DummyData[]>;
+
+  constructor(private dummyTableData: DummyTableDataService) { }
+
+  ngOnInit(): void {
+    this.rows$ = this.dummyTableData.getDummyData();
   }
 
 }

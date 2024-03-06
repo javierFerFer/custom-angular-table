@@ -1,0 +1,22 @@
+
+<ng-container *ngIf="type === 'th'; else trContent">
+    <th *ngFor="let item of content">
+        <ng-container
+        *ngIf="headerTemplateRef"
+        [ngTemplateOutlet]="headerTemplateRef"
+        [ngTemplateOutletContext]="{$implicit:item}"
+     >
+     </ng-container>
+    </th>
+</ng-container>
+
+<ng-template #trContent>
+    <td *ngFor="let item of content">
+        <ng-container
+        *ngIf="headerTemplateRef"
+        [ngTemplateOutlet]="headerTemplateRef"
+        [ngTemplateOutletContext]="{$implicit:item}"
+     >
+     </ng-container>
+    </td>
+</ng-template>
