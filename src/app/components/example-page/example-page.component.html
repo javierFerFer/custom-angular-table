@@ -3,23 +3,27 @@
 } as tmpState">
   <app-custom-table>
 
-    <tr app-custom-tr id="columns" type="th" [content]="columns">
-      <ng-template let-item #header>
-        {{item.title}}
-      </ng-template>
-    </tr>
+<ng-container id="columns">
+  <tr app-custom-tr type="headers" [content]="columns">
+    <th id="name">{{columns['name'].title}}</th>
+    <th id="surname">{{columns['surname'].title}}</th>
+  </tr>
+  <!-- <th app-custom-th type="th">
+    <tr id="selector">aloja1</tr>
+  </th> -->
+</ng-container>
 
   
-    <ng-container id="content">
+    <!-- <ng-container id="content">
 
-      <ng-container *ngFor="let groupOfItems of (tmpState.rows | chunks: columns.length - 1 | fillWithEmpty: [0])">
-        <tr app-custom-tr type="td" [content]="groupOfItems">
+      <ng-container *ngFor="let row of tmpState.rows">
+        <tr app-custom-tr type="td" [content]="row">
           <ng-template let-item #content>
             {{item.name}}
           </ng-template>
         </tr>
       </ng-container>
-    </ng-container>
+    </ng-container> -->
   
   
   </app-custom-table>

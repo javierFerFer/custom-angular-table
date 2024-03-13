@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: '[app-custom-tr]',
@@ -12,20 +12,20 @@ import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } 
 export class CustomTrComponent {
 
   
-  @Input({
-    required: true
-  })
-  content!: any[]
+  @Input(
+    {required: true}
+  )
+  content!: any
 
   @Input({
     required: true
   })
-  type!: 'th' | 'td';
+  type!: 'headers' | 'content';
 
-  key: unknown = null;
+  // key: unknown = null;
 
-  @ContentChild('header',{static: false}) headerTemplateRef!: TemplateRef<any>;
-  @ContentChild('content',{static: false}) contentTemplateRef!: TemplateRef<any>;
+  // @ContentChild('header',{static: false}) headerTemplateRef!: TemplateRef<any>;
+  // @ContentChild('content',{static: false}) contentTemplateRef!: TemplateRef<any>;
 
 
   constructor() {

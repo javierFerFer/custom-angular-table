@@ -23,24 +23,24 @@ export class DummyTableDataService {
           userId: 1
         },
         {
-          name: 'alberto',
+          name: 'alberto1',
           surname: 'fernandez',
           userId: 2
         },
         {
-          name: 'alberto',
+          name: 'alberto2',
           surname: 'fernandez',
-          userId: 2
+          userId: 3
         },
         {
-          name: 'alberto',
+          name: 'alberto3',
           surname: 'fernandez',
-          userId: 2
+          userId: 4
         },
         {
-          name: 'alberto',
+          name: 'alberto4',
           surname: 'fernandez',
-          userId: 2
+          userId: 5
         },
       ]
     );

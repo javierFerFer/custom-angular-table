@@ -1,22 +1,26 @@
-<ng-container *ngIf="type === 'th'; else trContent">
-    <th [ngClass]="[item.cssClass || '', item.title === 'actions' ? 'empty' : '']" *ngFor="let item of content">
-        <ng-container *ngIf="item.title !== 'actions'; else emptyElement" [ngTemplateOutlet]="headerTemplateRef"
-            [ngTemplateOutletContext]="{$implicit: item}">
+<ng-container *ngIf="type === 'headers'; else trContent">
+    <!-- <th [ngClass]="[content?.cssClass || '', content?.title === 'actions' ? 'empty' : '']">
+        <ng-container *ngIf="content?.title !== 'actions'" [ngTemplateOutlet]="headerTemplateRef"
+            [ngTemplateOutletContext]="{$implicit: content}">
         </ng-container>
-    </th>
+    </th> -->
+    <ng-container *ngFor="let item of content | keyvalue">
+        <ng-content [select]="'#' + item.key"></ng-content>
+    </ng-container>
+
 </ng-container>
 
 
-<ng-template #emptyElement>
+<!-- <ng-template #emptyElement>
     &nbsp;
-</ng-template>
+</ng-template> -->
 
 <ng-template #trContent>
-    <td *ngFor="let item of content">
+    <!-- <td>
         <ng-container
-        *ngIf="item; else emptyElement"
+        *ngIf="content"
         [ngTemplateOutlet]="contentTemplateRef"
-            [ngTemplateOutletContext]="{$implicit:item}">
+            [ngTemplateOutletContext]="{$implicit:content}">
         </ng-container>
-    </td>
+    </td> -->
 </ng-template>

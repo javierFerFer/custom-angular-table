@@ -6,8 +6,10 @@ import {
 } from '../../services/dummy-table-data.service';
 
 export interface Column {
-  title: string;
-  cssClass?: string;
+  [key: string]: {
+    title: string,
+    cssClass?: string
+  };
 }
 
 @Component({
@@ -16,24 +18,14 @@ export interface Column {
   styleUrls: ['./example-page.component.scss'],
 })
 export class ExamplePageComponent implements OnInit {
-  public columns: Column[] = [
-    {
-      title: 'actions',
+  public columns: Column = {
+    name: {
+      title: 'name'
     },
-    {
-      title: 'columna_1',
-      cssClass: 'first-column'
-    },
-    {
-      title: 'columna_2',
-    },
-    {
-      title: 'columna_3',
-    },
-    {
-      title: 'columna_4',
-    },
-  ];
+    surname: {
+      title: 'surname'
+    }
+  };
 
   public rows$!: Observable<DummyData[]>;
 
